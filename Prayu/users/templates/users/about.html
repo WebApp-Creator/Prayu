@@ -1,11 +1,11 @@
 {% extends 'users/basic.html' %}
-{% block title %}
-Prayu: An E-Pharmacy & Consulting Service
-{% endblock %}
 {% block cdn %}
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
 		<meta name="description" value="A responsive carousel with one image fully visible and two images only partially visible. This slider contains only three images but is capable of handling more." />
 		<meta name="keywords" value="responsive, carousel, slider, partially, slices, jquery, example" />
+		<title>Responsive carousel showing one image and two images partially</title>
+
+
 {% endblock %}
 {% block js %}
 <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
@@ -103,6 +103,8 @@ Prayu: An E-Pharmacy & Consulting Service
 		</script>
 {% endblock %}
 {% block css%}
+		<style type="text/css">
+
 			#wrapper {
 				height: 100%;
 				width: 100%;
@@ -161,58 +163,55 @@ Prayu: An E-Pharmacy & Consulting Service
 			#slider .slide-block p {
 				margin: 0;
 			}
-<!--Button-->
-			.btn3d {
-				position: relative;
-				top: -6px;
-				border: 0;
-				transition: all 40ms linear;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				margin-left: 2px;
-				margin-right: 2px;
-			}
 
-			.btn3d:active:focus,
-			.btn3d:focus:hover,
-			.btn3d:focus {
-				-moz-outline-style: none;
-				outline: medium none;
+			#donate-spacer {
+				height: 0;
 			}
-
-			.btn3d:active,
-			.btn3d.active {
-				top: 2px;
-}
+			#donate {
+				border-top: 1px solid #999;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+				color: #999;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
 {% endblock %}
 {% block body %}
 		<div id="wrapper">
 			<div id="slider">
 
-				<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2016/12/05/19/49/syringe-1884784_960_720.jpg);">
+				<div class="slide img-fluid" style="background-image: url({% static 'users/iceage.jpg'%});">
 					<div class="slide-block">
-						<h4>Medicines</h4>
+						<h4>Ice Age</h4>
 						<p>Heading south to avoid a bad case of global frostbite, a group of migrating misfit creatures embark on a hilarious quest to reunite a human baby with his tribe.</p>
-						<button type="button" class="btn btn-primary btn3d my-3">Shop Now</button>
 					</div>
 				</div>
 
-				<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2017/03/14/03/20/nurse-2141808_960_720.jpg);">
+				<div class="slide" style="background-image: url({% static 'users/birds.jpg'%});">
 					<div class="slide-block">
-						<h4>Doctors</h4>
+						<h4>For The Birds</h4>
 						<p>For the Birds is an animated short film, produced by Pixar Animation Studios released in 2000. It is shown in a theatrical release of the 2001 Pixar feature film Monsters, Inc.</p>
-						<button type="button" class="btn btn-primary btn3d my-3">Search for Doctor</button>
 					</div>
 				</div>
 
-				<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2015/05/15/05/31/night-view-767852_960_720.jpg);">
+				<div class="slide" style="background-image: url(https://images.pexels.com/photos/1304642/pexels-photo-1304642.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
 					<div class="slide-block">
-						<h4>Hospitals</h4>
+						<h4>UP</h4>
 						<p>A comedy adventure in which 78-year-old Carl Fredricksen fulfills his dream of a great adventure when he ties thousands of balloons to his house and flies away to the wilds of South America.</p>
-						<button type="button" class="btn btn-primary btn3d my-3">Search for Hospitals</button>
 					</div>
 				</div>
+
 			</div>
 		</div>
-		<div class="container" style="background-color:red;"><h3>Helllo</h3></div>
 {% endblock %}

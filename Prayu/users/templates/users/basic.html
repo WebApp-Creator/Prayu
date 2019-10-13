@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +15,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/font-awesome/css/font-awesome.min.css">
+
     {% block cdn %}  {% endblock %}
+    {% block script %}
+    {% endblock %}
 <style>
 .footer
 {
@@ -60,7 +64,6 @@ p
     border-top:1px solid rgba(255,255,255,.1);
 }
 }
-
 {% block css %}{% endblock %}
 </style>
     <title>{% block title %} {% endblock %}</title>
@@ -119,9 +122,10 @@ p
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-xs-12 about-company">
-      <h2>Prayu</h2>
-      <p class="pr-5">An E-Pharmacy & Consulting Services</p>
-      <p><a href="#" style="color:white;"><i class="fa fa-facebook-square mr-1"></i></a><a href="#" style="color:white;"><i class="fa fa-linkedin-square"></i></a></p>
+<!--      <h2>Prayu</h2>-->
+<!--      <p class="pr-5">An E-Pharmacy & Consulting Services</p>-->
+      <img src="{% static 'users/logo.png'%}" width="auto" height="auto" alt="" style="padding:0px; margin: -4px;">
+      <p class="my-3 mx-3"><a href="#" style="color:white;"><i class="fa fa-facebook-square mr-1"></i></a><a href="#" style="color:white;"><i class="fa fa-linkedin-square"></i></a></p>
     </div>
     <div class="col-lg-3 col-xs-12 links">
       <h4 class="mt-lg-0 mt-sm-3">Links</h4>
@@ -141,7 +145,7 @@ p
       <p><i class="fa fa-envelope-o mr-3"></i>info@prayu.com</p>
     </div>
   </div>
-  <div class="row mt-5">
+  <div class="row mt-2">
     <div class="col copyright">
       <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
     </div>
@@ -156,5 +160,4 @@ p
     {% block js %}
     {% endblock %}
   </body>
-
 </html>
