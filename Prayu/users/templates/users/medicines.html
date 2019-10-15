@@ -1,0 +1,129 @@
+{% extends 'users/basic.html' %}
+{% block cdn %}
+
+{% endblock %}
+
+
+{% block js %}
+{% load static %}
+
+{% endblock %}
+
+
+{% block css%}
+header.masthead {
+  text-align: center;
+  color: black;
+  max-height: 400px;
+  background-image: url("https://cdn.pixabay.com/photo/2017/03/02/08/58/background-texture-2110724_960_720.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+header.masthead .intro-text .intro-lead-in {
+  font-size: 22px;
+  font-style: italic;
+  line-height: 22px;
+  font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+header.masthead .intro-text .intro-heading {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@media (min-width: 768px) {
+  header.masthead .intro-text {
+    padding-top: 100px;
+    padding-bottom: 200px;
+  }
+  header.masthead .intro-text .intro-lead-in {
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 25px;
+    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+  header.masthead .intro-text .intro-heading {
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+}
+.btn {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-weight: 700;
+}
+
+.btn-xl {
+  font-size: 18px;
+  padding: 8px 20px;
+}
+
+.btn-primary {
+  background-color: rgba(0,147,255);
+  border-color: white;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  background-color: black !important;
+  border-color: rgba(0,147,255) !important;
+  color: white;
+}
+
+.btn-primary:active, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+{% endblock %}
+
+
+{% block body %}
+<header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Search your Medicines Here!</div>
+         <form action="#" method="get">
+             <center>
+             <div class="main col-sm-6">
+              <!-- Actual search box -->
+              <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Write here...">
+                  <br/>
+                  <input type="submit" class="btn btn-primary" value="Search">
+              </div>
+             </div>
+             </center>
+         </form>
+      </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+    <h2>Hwlwq</h2>
+    </div>
+</div>
+{% endblock %}
