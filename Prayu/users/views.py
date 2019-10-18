@@ -19,7 +19,7 @@ def medicines(request):
         nSlides = n // 4 + ceil((n / 4) - (n // 4))
         allprods.append([prod, range(1, nSlides), nSlides])
     params = {'allprods': allprods}
-    print(params)
+    # print(params)
     return render(request, 'users/medicines.html', params)
 
 def doctors(request):
