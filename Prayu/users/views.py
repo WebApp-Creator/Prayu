@@ -28,8 +28,8 @@ def doctors(request):
 def hospitals(request):
     return render(request, 'users/hospitals.html')
 
-def about(request):
-    return render(request, 'users/about.html')
+def viewcart(request):
+    return render(request, 'users/viewcart.html')
 
 def contact(request):
     return render(request, 'users/contact.html')
