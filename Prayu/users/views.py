@@ -29,7 +29,9 @@ def hospitals(request):
     return render(request, 'users/hospitals.html')
 
 def viewcart(request):
-    return render(request, 'users/viewcart.html')
+    products = Product.objects.all()
+    params = {'products':products}
+    return render(request, 'users/viewcart.html', params)
 
 def contact(request):
     return render(request, 'users/contact.html')

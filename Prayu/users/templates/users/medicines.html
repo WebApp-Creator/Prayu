@@ -76,8 +76,8 @@ margin-left:-4px;
 background-color: blue;
 }
 .col-md-3 img{
-width:200px;
-height:250px;
+width:160px;
+height:210px;
 }
 body .carousel-indicator li{
 background-color: blue;
@@ -143,11 +143,12 @@ padding-right: 0;
                     {% for i in product %}
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="card align-items-center" style="width: 18r">
-                            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            <img src='/media/{{i.image}}' id="imagepr{{i.product_id}}" class="card-img-top img-fluid " alt="..."  value="/media/{{i.image}}">
                             <div class="card-body">
                                 <h5 class="card-title" id="namepr{{i.product_id}}">{{i.product_name}}</h5>
-                                <p class="card-text">{{i.desc|slice:"0:50"}}...</p>
-                                <h5 class="card-title">Rs. <span id="pricepr{{i.product_id}}">{{i.price}}</span></h5>
+                                <p class="card-text" id="companypr{{i.product_id}}">{{i.company}}</p>
+                                <p style="color:grey">MRP ₹ <span  id="mrppr{{i.product_id}}">{{i.maxretailprice}}</span></p>
+                                <h5 class="card-title">₹ <span id="pricepr{{i.product_id}}">{{i.sallingprice}}</span></h5>
                                 <span id="divpr{{i.product_id}}" class="divpr">
                                     <button id="pr{{i.product_id}}" class="btn btn-primary cart">Add To Cart</button></span>
                                 <a href="/medicines/prodview/{{i.product_id}}"><button id="qv{{i.product_id}}" class="btn btn-primary cart">View</button></a>
@@ -196,7 +197,10 @@ padding-right: 0;
 	        Qty = 1;
 	        name = document.getElementById('name' + idstr).innerHTML;
 	        price = document.getElementById('price' + idstr).innerHTML;
-	        cart[idstr] = [Qty, name, parseInt(price)];
+	        mrp = document.getElementById('mrp' + idstr).innerHTML;
+	        company = document.getElementById('company' + idstr).innerHTML;
+	        image = document.getElementById('image' + idstr).innerHTML;
+	        cart[idstr] = [Qty, name, parseInt(price),parseInt(mrp), company, image];
 	    }
 	    updateCart(cart);
 	    console.log(cart);
