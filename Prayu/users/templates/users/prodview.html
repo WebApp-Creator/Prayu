@@ -1,0 +1,43 @@
+{% extends 'users/basic.html' %}
+
+{% block title %}
+	{{product.product_name}}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media/{{product.image}}" width="200px" height="300px">
+            </div>
+            <div class="row mt-4">
+                <button class="btn btn-primary mx-3">Buy now</button>
+                <button class="btn btn-primary">Add to cart</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h4>{{product.product_name}}</h4>
+            <p style="color: grey">M.R.P: <strike>₹ {{product.maxretailprice}}</strike></p>
+            <p>Selling Price: <strong>₹ {{product.sallingprice}}/-</strong></p>
+            <div id="save">
+            	<p style="color: green">Rs.23</p>
+			</div>
+            <p>{{product.desc}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+	if (localStorage.getItem('cart') == null) {
+	    var cart = {};
+	} else {
+	    cart = JSON.parse(localStorage.getItem('cart'));
+	    localStorage.setItem('cart', JSON.stringify(cart));
+	}
+	 document.getElementById('cart').innerHTML = sum;
+	
+</script>
+{% endblock %}
