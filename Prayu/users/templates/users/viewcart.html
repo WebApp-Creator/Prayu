@@ -113,6 +113,13 @@ hr.style13 {
 	    location.reload();
 	}
 
+    function clearItem() {
+        console.log("hello");
+        cart = JSON.parse(localStorage.getItem('cart'));
+        localStorage.clear();
+        cart = {};
+        location.reload();
+    }
 
 	var sum=0;
 	var allprice=0;
@@ -145,12 +152,12 @@ hr.style13 {
 	   mystr = ` <div class="row" >
                         <div class="col-sm-3"><img src="https://rukminim1.flixcart.com/image/120/120/jws547k0/wallet-card-wallet/3/u/d/casual-brownnn-41-wallet-fns-original-imafhd9v8u6nqtgw.jpeg?q=90"></div>
                         <div class="col-sm-6"><h6>${name}</h6><p>${comp}</p></div>
-                        <div class="col-sm-3"><h6>₹ ${price}</h6></div>
+                        <div class="col-sm-3"><p style="color:grey">MRP: ₹ <strike>${mrp}</strike>/-</p><h6>Selling Price: ₹ ${price}/-</h6></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3"><span id="divpr{{i.product_id}}" class="divpr">
                                     <button id="pr{{i.product_id}}" class="btn btn-primary cart">Add To Cart</button></span></div>
-                        <div class="col-sm-9"><a href=""><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></div>
+                        <div class="col-sm-9"><a href="#" onclick="clearCart()"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></div>
                     </div><hr class="style13">`
         $('#proddetail').append(mystr);
         document.getElementById('allmrp').innerHTML = "₹ "+allmrp;

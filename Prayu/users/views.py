@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product
+from .models import Product, Contact
 from math import ceil
 from django import template
 
@@ -44,4 +44,11 @@ def hospitals(request):
 
 
 def contact(request):
+    if request.method=="POST":
+        name=request.POST.get('name','')
+        email=request.POST.get('email','')
+        subject=request.POST.get('subject','')
+        message=request.POST.get('message','')
+        contact = Contact(name=name,email=email,subject=subject,message=message)
+        contact.save()
     return render(request, 'users/contact.html')
