@@ -110,16 +110,18 @@ padding-right: 0;
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Search your Medicines Here!</div>
-         <form action="/users/search/" method="get">
+         <form action="#" method="get">
              <center>
              <div class="main col-sm-6">
               <!-- Actual search box -->
+              <form method="get" action="/users/search/">
               <div class="form-group has-search">
                 <span class="fa fa-search form-control-feedback"></span>
                 <input type="text" class="form-control" placeholder="Write here..." name="search" id="search">
                   <br/>
                   <input type="submit" class="btn btn-primary" value="Search">
               </div>
+              </form>
              </div>
              </center>
          </form>
@@ -177,6 +179,11 @@ padding-right: 0;
 {% endblock %}
 {% block js%}
 <script>
+
+    { % if msg | length != 0 % }
+    alert('{{msg}}');
+    window.location.href = "/"
+    { % endif % }
 	// find out the cart items from local storage
 	if (localStorage.getItem('cart') == null) {
 	    var cart = {};

@@ -25,6 +25,32 @@ def medicines(request):
     # print(params)
     return render(request, 'users/medicines.html', params)
 
+def searchMatch(query,item):
+    ''' Return true only if query matches the item '''
+    if query in item.company.lower() or query in item.product_name.lower() or query in item.category:
+        return True
+    else:
+        return False
+
+def search(request):
+    query = request.GET.get('search')
+    allprods = []
+    #print(query)
+    catprods = Product.objects.values('category', 'product_id')
+    cats = {item['category'] for item in catprods}
+    for cat in cats:
+        prodtemp = Product.objects.filter(category=cat)
+        prod = [item for item in prodtemp if searchMatch(query, item)]
+        n = len(prod)
+        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        if len(prod) != 0:
+            allprods.append([prod, range(1, nSlides), nSlides])
+    params = {'allprods': allprods, 'msg': ""}
+    if len(allprods) == 0 or len(query)<3:
+        params = {'msg': "Please make sure to relevent search query"}
+    print(params)
+    return render(request, 'users/medicines.html', params)
+
 def prodview(request, id):
     # fetch the product using ID
     product = Product.objects.filter(product_id=id)
