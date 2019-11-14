@@ -14,7 +14,7 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
-}
+} 
 
 header.masthead .intro-text .intro-lead-in {
   font-size: 22px;
@@ -190,7 +190,7 @@ padding-right: 0;
 	// $('.cart').click(function()
 	$('.divpr').on("click", "button.cart", function() {
 	    var idstr = this.id.toString();
-	    console.log(idstr);
+	    //console.log(idstr);
 	    if (cart[idstr] != undefined) {
 	        Qty = cart[idstr][0] + 1;
 	    } else {
@@ -199,11 +199,11 @@ padding-right: 0;
 	        price = document.getElementById('price' + idstr).innerHTML;
 	        mrp = document.getElementById('mrp' + idstr).innerHTML;
 	        company = document.getElementById('company' + idstr).innerHTML;
-	        image = document.getElementById('image' + idstr).innerHTML;
+	        image = document.getElementById('image' + idstr).src;
+          console.log(image);
 	        cart[idstr] = [Qty, name, parseInt(price),parseInt(mrp), company, image];
 	    }
 	    updateCart(cart);
-	    console.log(cart);
 
 	});
 

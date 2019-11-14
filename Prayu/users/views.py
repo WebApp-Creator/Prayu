@@ -27,7 +27,7 @@ def medicines(request):
 
 def searchMatch(query,item):
     ''' Return true only if query matches the item '''
-    if query in item.company.lower() or query in item.product_name.lower() or query in item.category:
+    if query in item.company.lower() or query in item.product_name.lower() or query in item.category.lower():
         return True
     else:
         return False

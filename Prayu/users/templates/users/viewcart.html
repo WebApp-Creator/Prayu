@@ -80,7 +80,7 @@ hr.style13 {
                     </div>
                 <hr class="style3">
                     <div class="container">
-                        <button class="btn btn-danger my-2">Cancle</button>
+                        <button class="btn btn-primary my-2">Continue Shopping</button>
                         <button class="btn btn-success my-2">Checkout</button>
                     </div>
                 </div>
@@ -148,9 +148,10 @@ hr.style13 {
 	    allmrp +=mrp;
 	    let comp = cart[item][4];
 	    let discount = allmrp-allprice;
+	    let image = cart[item][5];
 	    sum +=qty;
 	   mystr = ` <div class="row" >
-                        <div class="col-sm-3"><img src="https://rukminim1.flixcart.com/image/120/120/jws547k0/wallet-card-wallet/3/u/d/casual-brownnn-41-wallet-fns-original-imafhd9v8u6nqtgw.jpeg?q=90"></div>
+                        <div class="col-sm-3"><img src="${image}" style="height:100px; width:100px; margin-left:20px"></div>
                         <div class="col-sm-6"><h6>${name}</h6><p>${comp}</p></div>
                         <div class="col-sm-3"><p style="color:grey">MRP: ₹ <strike>${mrp}</strike>/-</p><h6>Selling Price: ₹ ${price}/-</h6></div>
                     </div>
