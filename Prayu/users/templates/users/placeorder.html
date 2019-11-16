@@ -1,0 +1,259 @@
+{% extends 'users/basic.html' %}
+{% block css %}
+body
+{
+background-color:#edebe8;
+}
+.layout
+{
+background-color:white;
+border:1px solid lightgrey;
+box-shadow: 2px 2px 2px 2px #888888;
+}
+hr.style14 {
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+hr.style3 {
+border-top: 1px dashed #8c8b8b;
+}
+hr.style13 {
+height: 10px;
+border: 0;
+box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+#viewcart
+{
+padding:10px;
+}
+#cartitem
+{
+background-color: ;
+border:1px black;
+}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row" id="viewcart">
+        <div class="col-sm-8 layout">
+            <div class="container" id="cartitem">
+                <div class="row">
+                    <div class="container my-2">
+                        <h4>Enter Your Delivery Address</h4>
+                        <hr class="style14">
+                    </div>
+                </div>
+                <form action="/users/placeorder/" method="POST">{% csrf_token %}
+                	<input type="hidden" name="itemsJson" id="itemsJson">
+                	<input type="hidden" name="amount" id="amount">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" name="address2">
+                    </div>
+                    <div class="form-row">
+                    	<div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="state" class="form-control" name="state">
+                                <option selected>Choose...</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                <option value="Daman and Diu">Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Orissa">Orissa</option>
+                                <option value="Pondicherry">Pondicherry</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttaranchal">Uttaranchal</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="city" name="city">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Pin Code</label>
+                            <input type="text" class="form-control" id="pin" name="pin">
+                        </div>
+                            <div class="form-group col-md-12">
+                            <label for="inputZip">Mobile Number</label>
+                            <input type="tel" class="form-control" id="mobile" name="mobile">
+                        </div>
+                    </div>
+                            <button type="submit" class="btn btn-success my-2">Place Order</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:;" id="priceinfo">
+            <div class="container layout" id="pricedetail">
+                <div class="row">
+                    <div class="container my-2">
+                        <h4>Price Detail</h4>
+                        <hr class="style14">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        MRP Total:<br />
+                        Discount(You Save): <br />
+                        Shipping Charge:<br />
+                    </div>
+                    <div class="col-sm-4">
+                        <h6 id="allmrp"></h6>
+                        <span id="discount"></span><br />
+                        <span>Free</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container-fluid">
+                        <hr class="style3">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h6>Total Payable:</h6>
+                            </div>
+                            <div class="col-sm-4">
+                                <h6 id="allprice"></h6>
+                            </div>
+                        </div>
+                        <hr class="style3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% for i in product %}
+{% endfor %}
+{% endblock %}
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+
+function clearCart() {
+    console.log("hello");
+    cart = JSON.parse(localStorage.getItem('cart'));
+    localStorage.clear();
+    cart = {};
+    location.reload();
+}
+
+function clearItem() {
+    console.log("hello");
+    cart = JSON.parse(localStorage.getItem('cart'));
+    localStorage.clear();
+    cart = {};
+    location.reload();
+}
+
+var sum = 0;
+var allprice = 0;
+var allmrp = 0;
+console.log(cart);
+if ($.isEmptyObject(cart)) {
+    // If cart is empty
+    mystr = ` <div class="row">
+	                    <div class="alert alert-danger mx-auto" role="alert">
+                        Ops!! Your Cart is empty. <a href="/users/medicines" class="alert-link">Click here</a> to find your medicines.
+                        </div>
+                    </div>`
+    $('#proddetail').append(mystr);
+} else {
+    // if cart has atleast one items
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2] * qty;
+        let mrp = cart[item][3] * qty;
+        allprice += price;
+        allmrp += mrp;
+        let comp = cart[item][4];
+        let discount = allmrp - allprice;
+        let image = cart[item][5];
+        sum += qty;
+        mystr = ` <div class="row" >
+                        <div class="col-sm-3"><img src="${image}" style="height:120px; width:100px; margin-left:20px"></div>
+                        <div class="col-sm-6"><h6>${name}</h6><p>${comp}</p></div>
+                        <div class="col-sm-3"><p style="color:grey">MRP: ₹ <strike>${mrp}</strike>/-</p><h6>Selling Price: ₹ ${price}/-</h6></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3"><span id="divpr{{i.product_id}}" class="divpr">
+                                    </span></div>
+                        <div class="col-sm-9"><a href="#" onclick="clearCart()"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></div>
+                    </div><hr class="style13">`
+        $('#proddetail').append(mystr);
+        document.getElementById('allmrp').innerHTML = "₹ " + allmrp;
+        document.getElementById('discount').innerHTML = "<span style='color:green'>- ₹ " + discount + "</span>";
+        document.getElementById('allprice').innerHTML = allprice;
+    }
+}
+if ($.isEmptyObject(cart)) {
+    document.getElementById("priceinfo").style.display = "none";
+} else {
+    canclebtn = `<button class="btn btn-danger mb-2" onclick="clearCart()">Remove all Items</button>`
+    $('#canclebtn').append(canclebtn);
+
+}
+document.getElementById('cart').innerHTML = sum;
+$('#itemsJson').val(JSON.stringify(cart)); 
+// console.log(thank)
+{% if thank %}
+alert('Thanks for ordering with us. Your Order ID is {{id}}. Use it to track your order');
+console.log('hello');
+localStorage.clear();
+document.location = '/users';
+{% endif %}
+$('#amount').val ($('#allprice').html())
+</script>
+{% endblock %}

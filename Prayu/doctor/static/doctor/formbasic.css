@@ -1,7 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #17a2b8;
+  background-image: url("https://image.freepik.com/free-photo/doctor-holding-stethoscope_23-2147822716.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
@@ -9,7 +11,7 @@ body {
   max-width: 600px;
   height: auto;
   border: 1px solid #9C9C9C;
-  background-color: #EAEAEA;
+  background-color: rgba(237, 241, 240,.6);
 }
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;

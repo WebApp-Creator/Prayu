@@ -12,13 +12,13 @@
           {% endif %}
 	<form method="POST">{% csrf_token %}
 		<fieldset class="form-group">
-			<legend class="border-bottom mb-4"> Log In </legend>
+			<legend class="border-bottom mb-4" style="color: black"> Log In </legend>
 			{{form|crispy}}
 		</fieldset>
 		<div class="form-group">
 			<button class="btn btn-outline-info" type="submit">Login</button>
 			<small class="text-muted ml-2">
-				<a href="{% url 'Password_reset' %}"> Forget password?
+				<a href="{% url 'Password_reset' %}"> Forget password?</a>
 			</small>
 		</div>
 	</form>

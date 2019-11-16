@@ -38,3 +38,28 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Order(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    items_json = models.CharField(max_length=5000)
+    amount = models.IntegerField(default=0  )
+    name = models.CharField(max_length=50, default="")
+    email = models.CharField(max_length=50, default="")
+    address1 = models.CharField(max_length=100, default="") 
+    address2 = models.CharField(max_length=100, default="")
+    city = models.CharField(max_length=100, default="")
+    state = models.CharField(max_length=100, default="")
+    pin = models.CharField(max_length=100, default="")
+    mobile = models.CharField(max_length=100, default="")
+
+    def __str__(self):
+        return f'Order Id: {self.order_id}'
+
+class OrderUpdate(models.Model):
+    upload_id = models.AutoField(primary_key=True)
+    order_id = models.IntegerField(default=0)
+    update_desc = models.CharField(max_length=5000)
+    timestamp = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.update_desc[:7] + "..."

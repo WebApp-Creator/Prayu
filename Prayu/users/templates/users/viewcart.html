@@ -80,8 +80,8 @@ hr.style13 {
                     </div>
                 <hr class="style3">
                     <div class="container">
-                        <button class="btn btn-primary my-2">Continue Shopping</button>
-                        <button class="btn btn-success my-2">Checkout</button>
+                        <button class="btn btn-primary my-2">Back to Shopping</button>
+                        <a href="{% url 'PlaceOrder'%}"><button class="btn btn-success my-2">Continue</button></a>
                     </div>
                 </div>
             </div>
@@ -151,13 +151,13 @@ hr.style13 {
 	    let image = cart[item][5];
 	    sum +=qty;
 	   mystr = ` <div class="row" >
-                        <div class="col-sm-3"><img src="${image}" style="height:100px; width:100px; margin-left:20px"></div>
+                        <div class="col-sm-3"><img src="${image}" style="height:120px; width:100px; margin-left:20px"></div>
                         <div class="col-sm-6"><h6>${name}</h6><p>${comp}</p></div>
                         <div class="col-sm-3"><p style="color:grey">MRP: ₹ <strike>${mrp}</strike>/-</p><h6>Selling Price: ₹ ${price}/-</h6></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3"><span id="divpr{{i.product_id}}" class="divpr">
-                                    <button id="pr{{i.product_id}}" class="btn btn-primary cart">Add To Cart</button></span></div>
+                                    </span></div>
                         <div class="col-sm-9"><a href="#" onclick="clearCart()"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></div>
                     </div><hr class="style13">`
         $('#proddetail').append(mystr);

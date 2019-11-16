@@ -1,0 +1,130 @@
+{% extends 'users/basic.html' %}
+{% block css %}
+body
+{
+background-color:#edebe8;
+}
+.layout
+{
+background-color:white;
+border:1px solid lightgrey;
+box-shadow: 2px 2px 2px 2px #888888;
+}
+hr.style14 {
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+hr.style3 {
+border-top: 1px dashed #8c8b8b;
+}
+hr.style13 {
+height: 10px;
+border: 0;
+box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+#viewcart
+{
+padding:10px;
+}
+#cartitem
+{
+background-color: ;
+border:1px black;
+}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row" id="viewcart">
+        <div class="col-sm-8 layout">
+            <div class="container" id="cartitem">
+                <div class="row">
+                    <div class="container my-2">
+                        <h4>Enter Your Email address and Order Id to track Your Order!</h4>
+                        <hr class="style14">
+                    </div>
+                </div>
+                <form action="" method="POST" id="trackerForm">{% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Order ID</label>
+                            <input type="text" class="form-control" id="order_id" placeholder="Enter your Order Id" name="order_id">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    </div>
+                            <button type="submit" class="btn btn-success my-2">Track Order</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4" style="background-color:;" id="orderinfo">
+            <div class="container layout" id="pricedetail">
+                <div class="row">
+                    <div class="container my-2">
+                        <h4>Your Order Details</h4>
+                        <hr class="style14">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        MRP Total:<br />
+                        Discount(You Save): <br />
+                        Shipping Charge:<br />
+                    </div>
+                    <div class="col-sm-4">
+                        <h6 id="allmrp"></h6>
+                        <span id="discount"></span><br />
+                        <span>Free</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container-fluid">
+                        <hr class="style3">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h6>Total Payable:</h6>
+                            </div>
+                            <div class="col-sm-4">
+                                <h6 id="allprice"></h6>
+                            </div>
+                        </div>
+                        <hr class="style3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    $('#trackerForm').submit(function(event) {
+        $('#items').empty();
+        var formData = {
+            'orderid': $('input[name=OrderId]').val(),
+            'email': $('input[name=email]').val(),
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        }
+        $.ajax({
+                type: 'POST',
+                url: '/users/tracker/',
+                data: formData,
+                encode: true
+            })
+
+            .done(function(data) {
+                console.log(data);
+                
+            });
+        event.preventDefault();
+    })
+</script>
+{% endblock %}
