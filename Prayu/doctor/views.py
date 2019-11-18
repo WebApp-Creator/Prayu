@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import DRegisterForm,DRegUpdateForm, ProfileUpdateForm
+from .forms import DRegisterForm, DRegUpdateForm, ProfileUpdateForm
 # Create your views here.
 
 @login_required
@@ -12,8 +12,10 @@ def index(request):
 
 def dRegistration(request):
 	if request.method == 'POST':
-		form  = DRegisterForm()
+		form  = DRegisterForm(request.POST)
+		print("124")
 		if form.is_valid():
+			print("hello")
 			print(form)
 			form.save()
 			username = form.cleaned_data.get('username')
@@ -21,6 +23,7 @@ def dRegistration(request):
 			return redirect('Login')
 	else:
 		form = DRegisterForm()
+		print("hello2")
 	return render (request, 'doctor/dRegistration.html',{'form': form})
 
 @login_required

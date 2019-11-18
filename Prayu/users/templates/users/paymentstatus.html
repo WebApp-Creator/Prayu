@@ -69,7 +69,7 @@ border:1px black;
                                             <td>{{response.TXNID}}</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">Total Amouunt You Paid</th>
+                                            <th scope="row">Total Amount You Paid</th>
                                             <td>{{response.TXNAMOUNT}}</td>
                                         </tr>
                                         <tr>
@@ -89,6 +89,7 @@ border:1px black;
                             </div>
                             {% else %}
                             <h3>Order Failure</h3>
+                            <h5 style="color: red">{{response.RESPMSG}}</h5>
                             {% endif %}
                         </div>
                     </div>
@@ -101,5 +102,6 @@ border:1px black;
 {% endblock %}
 {% block js %}
 <script>
+    localStorage.clear();
 </script>
 {% endblock %}

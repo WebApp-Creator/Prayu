@@ -1,4 +1,7 @@
 {% extends 'users/basic.html' %}
 {% block body %}
-hello {{user.email}}
+hi
+{% for product in Product %}
+hello {{product.0.category}}
+{% endfor %}
 {% endblock %}

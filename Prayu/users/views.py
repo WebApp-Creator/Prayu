@@ -117,7 +117,7 @@ def placeorder(request):
         order = Order(items_json=items_json,name=name,amount=amount,email=email,address1=address1,address2=address2,state=state,city=city,pin=pin,mobile=mobile)
         order.save()
         update = OrderUpdate(order_id=order.order_id,update_desc = "The order has been placed")
-        update.save(    )
+        update.save()
         thank = True
         id = order.order_id
         print(id)
@@ -147,7 +147,7 @@ def handlerequest(request):
         response_dict[i] = form[i]
         if i == 'CHECKSUMHASH':
             checksum = form[i]
-
+  
     verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
     if verify:
         if response_dict['RESPCODE'] == '01':
