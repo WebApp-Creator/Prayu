@@ -1,5 +1,5 @@
 from django.db import models
-
+from doctor.models import Dprofile
 
 # Create your models here.
 

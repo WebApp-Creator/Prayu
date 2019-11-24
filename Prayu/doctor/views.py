@@ -13,9 +13,7 @@ def index(request):
 def dRegistration(request):
 	if request.method == 'POST':
 		form  = DRegisterForm(request.POST)
-		print("124")
 		if form.is_valid():
-			print("hello")
 			print(form)
 			form.save()
 			username = form.cleaned_data.get('username')
@@ -23,7 +21,6 @@ def dRegistration(request):
 			return redirect('Login')
 	else:
 		form = DRegisterForm()
-		print("hello2")
 	return render (request, 'doctor/dRegistration.html',{'form': form})
 
 @login_required

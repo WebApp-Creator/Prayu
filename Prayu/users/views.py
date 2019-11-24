@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Product, Contact, Order, OrderUpdate
 from math import ceil
 from django import template
+from doctor.models import Dprofile
 from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
 
@@ -58,7 +59,7 @@ def search(request):
 def prodview(request, id):
     # fetch the product using ID
     product = Product.objects.filter(product_id=id)
-    # print(product); 
+    print(product); 
     return render(request, 'users/prodview.html',{'product':product[0]})
 
 def viewcart(request):
@@ -86,7 +87,14 @@ def tracker(request):
     return render(request, 'users/tracker.html')
 
 def doctors(request):
-    return render(request, 'users/doctors.html')
+	dprofile = Dprofile.objects.all()
+	print(dprofile)
+	return render(request, 'users/doctors.html',{'dprofile':dprofile})
+
+def doctorprofile(request, docid):
+	dprofile = Dprofile.objects.filter(id=docid)
+	print(dprofile)
+	return render(request, 'users/doctorprofile.html',{'dprofile':dprofile})
 
 def hospitals(request):
     return render(request, 'users/hospitals.html')
@@ -137,6 +145,7 @@ def placeorder(request):
         return render(request, 'users/paytm.html',{'param_dict':param_dict})
 
     return render(request, 'users/placeorder.html')
+
 
 @csrf_exempt
 def handlerequest(request):

@@ -1,0 +1,35 @@
+{% extends 'users/basic.html' %}
+
+{% block css %}
+
+#main
+{
+	background-color: #f8f8f8;
+}
+#profilebox
+{
+	background-color: white;
+}
+{% endblock %}
+{% block body %}
+{{full_name}}
+{{dprofile.user.user}}
+{{dprofile.user_id}}
+<h4>{{user.dprofile.full_name}}</h4>
+<h4>{{dprofile.full_name}}</h4>
+<h4>{{user.dprofile.full_name}}</h4>
+<h4>{{user.full_name}}</h4>
+<div class="container" id="main">
+	<div class="container p-4" id="profilebox">
+		<div class="row p-3" id="basicinfo">
+			<div class="col-md-4">
+				<img src="{{dprofile.image.url}}" class="card-img" alt="...">
+			</div>
+			<div class="col-md-8">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

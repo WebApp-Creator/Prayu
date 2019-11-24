@@ -114,7 +114,7 @@ p
         <a class="nav-link" href="/users/doctors" style="color: white;">Doctors</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/ptech/ablog" style="color: white;">Hospitals</a>
+        <a class="nav-link" href="{% url 'Hospitals'%}" style="color: white;">Hospitals</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/users/contact" style="color: white;">Contact Us</a>
@@ -148,20 +148,18 @@ p
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-xs-12 about-company">
-<!--      <h2>Prayu</h2>-->
-<!--      <p class="pr-5">An E-Pharmacy & Consulting Services</p>-->
       <img src="{% static 'users/logo.png'%}" width="auto" height="auto" alt="" style="padding:0px; margin: -4px;">
       <p class="my-3 mx-3"><a href="#" style="color:white;"><i class="fa fa-facebook-square mr-1"></i></a><a href="#" style="color:white;"><i class="fa fa-linkedin-square"></i></a></p>
     </div>
     <div class="col-lg-3 col-xs-12 links">
       <h4 class="mt-lg-0 mt-sm-3">Links</h4>
         <ul class="m-0 p-0 link">
-          <li>- <a href="#" style="color:white;">Medicines</a></li>
-          <li>- <a href="#" style="color:white;">Doctors</a></li>
-          <li>- <a href="#" style="color:white;">Hospitals</a></li>
+          <li>- <a href="{% url 'users'%}" style="color:white;">Medicines</a></li>
+          <li>- <a href="{% url 'Doctors'%}" style="color:white;">Doctors</a></li>
+          <li>- <a href="{% url 'Hospitals'%}" style="color:white;">Hospitals</a></li>
           <li>- <a href="#" style="color:white;">Blogs</a></li>
           <li>- <a href="#" style="color:white;">About Us</a></li>
-          <li>- <a href="#" style="color:white;">Contact Us</a></li>
+          <li>- <a href="{% url 'ContactUs' %}" style="color:white;">Contact Us</a></li>
         </ul>
     </div>
     <div class="col-lg-4 col-xs-12 location">

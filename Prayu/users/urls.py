@@ -6,6 +6,7 @@ urlpatterns = [
     path('prodview/<int:id>', views.prodview, name="ProdView"),
     path('search/', views.search, name="Search"),
     path('doctors/', views.doctors, name="Doctors"),
+    path('doctorprofile/<int:docid>', views.doctorprofile, name="DoctorProfile"),
     path('hospitals/', views.hospitals, name="Hospitals"),
     path('viewcart/', views.viewcart, name="ViewCarts"),
     path('placeorder/', views.placeorder, name="PlaceOrder"),
